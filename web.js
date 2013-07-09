@@ -1,9 +1,11 @@
 var express = require('express');
-
+var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Hello World2OA!');
+ var buffer=  fs.createReadStream("index.html")
+ 
+ response.send(buffer.toString());
 });
 
 var port = process.env.PORT || 5000;
